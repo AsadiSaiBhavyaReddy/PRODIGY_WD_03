@@ -1,6 +1,5 @@
 import React from 'react';
-import './Square.css'; // Import the CSS file
-
+import './Square.css'; 
 const Square = ({ value, onClick, className }) => {
   return (
     <button className={className} onClick={onClick}>
