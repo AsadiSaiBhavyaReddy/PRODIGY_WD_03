@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Mandali|Raleway:900&display=swap');
+
+html, body {
+  font-family: Mandali, Arial, sans-serif;
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #8B0000, #FFE4E1); /* Full background color as linear gradient */
+}
+
+.game-board-container {
+  text-align: center;
+}
+
+h1 {
+  font-family: Raleway, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.status {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.game-board {
+  border: 2px solid #333;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0,0,0,0.10);
+}
+
+.button {
+  margin-top: 20px;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a60011;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #b38c8c;
+}
+
+.square {
+  background-color: #fff;
+  border: 2px solid #333;
+  font-size: 40px;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.square:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.square::before {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Raleway, Courier, 'Courier New', Sans, sans-serif;
+  font-size: 7.5vmin;
+  font-weight: bold;
+}
+
+.square.x::before {
+  content: "X";
+  background: #004974;
+  color: #89dcf6;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.85);
+}
+
+.square.o::before {
+  content: "O";
+  background: #a60011;
+  color: #ffc7b5;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.85);
+}
+
+/* Add specific styles for the corners to have rounded borders like in the example */
+.square:first-child {
+  border-radius: 10% 0 0 0;
+}
+
+.square:nth-child(3) {
+  border-radius: 0 10% 0 0;
+}
+
+.square:nth-child(7) {
+  border-radius: 0 0 0 10%;
+}
+
+.square:last-child {
+  border-radius: 0 0 10% 0;
+}
+
+/* Winner announcement styles */
+#end {
+  background: rgba(255,255,255,0.85);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+#message {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  font-weight: bold;
+}
+
+#message input {
+  background: #000;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1.75rem;
+  margin: auto auto;
+  margin-top: 2rem;
+}
+
+/* Adjusted to show win messages */
+#end.show {
+  display: block;
+}
+
+#end.show #message::before {
+  content: attr(data-message);
+}
