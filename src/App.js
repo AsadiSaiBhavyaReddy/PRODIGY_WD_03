@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import GameBoard from './components/GameBoard';
 
